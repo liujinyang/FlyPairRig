@@ -12,7 +12,7 @@
     <exp_datetime appear_advanced="true, readonly"
         appear_basic="true, readonly" datatype="datetime" default=""
         description="Date and time at which the experiment was started."
-        entry="acquire" last="20230118T152311" range_advanced=""
+        entry="acquire" last="20230118T164758" range_advanced=""
         range_basic="" required="true" units=""/>
     <experimenter appear_advanced="true" appear_basic="true"
         datatype="string" default="$LAST"
@@ -23,13 +23,13 @@
         appear_basic="true, readonly" datatype="string" default="$LAST"
         description="Name of an XLS file that has values for experiment LED parameters"
         entry="acquire"
-        last="C:\Users\labadmin\Documents\MATLAB\FlyBowl1Rig\ledProtocols\protocolRGBT_short.xlsx"
+        last="C:\Users\labadmin\Documents\MATLAB\FlyPairRig\ledProtocols\protocolRGBT_short.xlsx"
         range_advanced="" range_basic="" required="true" units=""/>
     <protocol appear_advanced="true, readonly"
         appear_basic="true, readonly" datatype="string" default="$LAST"
         description="Name of an XLS file that has values for experiment parameters (see bottom of page for protocol fields). Whenever an experiment protocol variable is changed, user will need to create new rearing protocol file and give it a new name"
         entry="acquire"
-        last="C:\Users\labadmin\Documents\MATLAB\FlyBowl1Rig\ledProtocols\protocolRGBTemplate.xlsx"
+        last="C:\Users\labadmin\Documents\MATLAB\FlyPairRig\ledProtocols\protocolRGBTemplate.xlsx"
         range_advanced="" range_basic="" required="true" units=""/>
     <screen_type appear_advanced="true" appear_basic="true, readonly"
         datatype="string" default="primary" description=""
@@ -144,7 +144,7 @@
                     default="$LAST"
                     description="Name of an XLS file that has values for rearing parameters (see bottom of page for protocol fields). Whenever a rearing protocol variable is changed, user will need to create new rearing protocol file and give it a new name ."
                     entry="acquire"
-                    last="C:\Users\labadmin\Documents\MATLAB\FlyBowl1Rig\ledProtocols\protocolRGBTemplate.xlsx"
+                    last="C:\Users\labadmin\Documents\MATLAB\FlyPairRig\ledProtocols\protocolRGBTemplate.xlsx"
                     range_advanced="" range_basic="" required="true" units=""/>
                 <rearing_incubator appear_advanced="true"
                     appear_basic="true" datatype="integer"
@@ -159,7 +159,7 @@
                     default="$LAST"
                     description="Name of an XLS file that has values for pre-assay handling parameters (see bottom of page for protocol fields) whenever a handling protocol variable is changed, user will need to create new rearing protocol file and give it a new name ."
                     entry="acquire"
-                    last="C:\Users\labadmin\Documents\MATLAB\FlyBowl1Rig\ledProtocols\protocolRGBTemplate.xlsx"
+                    last="C:\Users\labadmin\Documents\MATLAB\FlyPairRig\ledProtocols\protocolRGBTemplate.xlsx"
                     range_advanced="" range_basic="" required="true" units=""/>
                 <handler_cross appear_advanced="true"
                     appear_basic="true" datatype="string"
@@ -178,7 +178,7 @@
                 <seconds_fliesloaded appear_advanced="true"
                     appear_basic="true" datatype="integer" default=""
                     description="calculated as difference in seconds between load button push and movie start."
-                    entry="acquire" last="2" range_advanced=""
+                    entry="acquire" last="1" range_advanced=""
                     range_basic="" required="true" units=""/>
                 <datetime_sorted appear_advanced="true"
                     appear_basic="true" datatype="datetime"
@@ -210,7 +210,7 @@
         <humidity appear_advanced="true, readonly"
             appear_basic="true, readonly" datatype="integer" default=""
             description="Humidity snapshot at the time the assay was started."
-            entry="acquire" last="40" range_advanced="" range_basic=""
+            entry="acquire" last="39" range_advanced="" range_basic=""
             required="true" units="percent"/>
     </environment>
     <notes_behavioral>
@@ -238,7 +238,7 @@
         <content appear_advanced="true" appear_basic="true"
             datatype="integer" default="0"
             description="Whether the experiment was aborted"
-            entry="manual" last="1" range_advanced="[0,1]"
+            entry="manual" last="0" range_advanced="[0,1]"
             range_basic="[0,1]" required="true" units=""/>
     </flag_aborted>
 </experiment>

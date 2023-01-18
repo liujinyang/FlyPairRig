@@ -1,35 +1,35 @@
-function varargout = flyBowl_RGB(varargin)
-% FLYBOWL_RGB MATLAB code for flyBowl_RGB.fig
-%      FLYBOWL_RGB, by itself, creates a new FLYBOWL_RGB or raises the existing
+function varargout = flyPairRig(varargin)
+% FLYPAIRRIG MATLAB code for flyPairRig.fig
+%      FLYPAIRRIG, by itself, creates a new FLYPAIRRIG or raises the existing
 %      singleton*.
 %
-%      H = FLYBOWL_RGB returns the handle to a new FLYBOWL_RGB or the handle to
+%      H = FLYPAIRRIG returns the handle to a new FLYPAIRRIG or the handle to
 %      the existing singleton*.
 %
-%      FLYBOWL_RGB('CALLBACK',hObject,eventData,handles,...) calls the local
-%      function named CALLBACK in FLYBOWL_RGB.M with the given input arguments.
+%      FLYPAIRRIG('CALLBACK',hObject,eventData,handles,...) calls the local
+%      function named CALLBACK in FLYPAIRRIG.M with the given input arguments.
 %
-%      FLYBOWL_RGB('Property','Value',...) creates a new FLYBOWL_RGB or raises the
+%      FLYPAIRRIG('Property','Value',...) creates a new FLYPAIRRIG or raises the
 %      existing singleton*.  Starting from the left, property value pairs are
-%      applied to the GUI before flyBowl_RGB_OpeningFcn gets called.  An
+%      applied to the GUI before flyPairRig_OpeningFcn gets called.  An
 %      unrecognized property name or invalid value makes property application
-%      stop.  All inputs are passed to flyBowl_RGB_OpeningFcn via varargin.
+%      stop.  All inputs are passed to flyPairRig_OpeningFcn via varargin.
 %
 %      *See GUI Options on GUIDE's Tools menu.  Choose "GUI allows only one
 %      instance to run (singleton)".
 %
 % See also: GUIDE, GUIDATA, GUIHANDLES
 
-% Edit the above text to modify the response to help flyBowl_RGB
+% Edit the above text to modify the response to help flyPairRig
 
-% Last Modified by GUIDE v2.5 17-Jan-2023 11:22:50
+% Last Modified by GUIDE v2.5 18-Jan-2023 16:47:19
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
 gui_State = struct('gui_Name',       mfilename, ...
     'gui_Singleton',  gui_Singleton, ...
-    'gui_OpeningFcn', @flyBowl_RGB_OpeningFcn, ...
-    'gui_OutputFcn',  @flyBowl_RGB_OutputFcn, ...
+    'gui_OpeningFcn', @flyPairRig_OpeningFcn, ...
+    'gui_OutputFcn',  @flyPairRig_OutputFcn, ...
     'gui_LayoutFcn',  [] , ...
     'gui_Callback',   []);
 if nargin && ischar(varargin{1})
@@ -44,15 +44,15 @@ end
 % End initialization code - DO NOT EDIT
 end
 
-% --- Executes just before flyBowl_RGB is made visible.
-function flyBowl_RGB_OpeningFcn(hObject, eventdata, handles, varargin)
+% --- Executes just before flyPairRig is made visible.
+function flyPairRig_OpeningFcn(hObject, eventdata, handles, varargin)
 % This function has no output args, see OutputFcn.
 % hObject    handle to figure
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-% varargin   command line arguments to flyBowl_RGB (see VARARGIN)
+% varargin   command line arguments to flyPairRig (see VARARGIN)
 
-% Choose default command line output for flyBowl_RGB
+% Choose default command line output for flyPairRig
 handles.output = hObject;
 
 flyBowl_user_setting;
@@ -155,7 +155,7 @@ end
 
 %feval(handles.Photron.live_radio.Callback, handles.Photron.live_radio);
 guidata(hObject, handles);
-% UIWAIT makes flyBowl_RGB wait for user response (see UIRESUME)
+% UIWAIT makes flyPairRig wait for user response (see UIRESUME)
 % uiwait(handles.figure1);
 end
 
@@ -183,7 +183,7 @@ guidata(Hfig, handles);
 end
 
 % --- Outputs from this function are returned to the command line.
-function varargout = flyBowl_RGB_OutputFcn(hObject, eventdata, handles)
+function varargout = flyPairRig_OutputFcn(hObject, eventdata, handles)
 % varargout  cell array for returning output args (see VARARGOUT);
 % hObject    handle to figure
 % eventdata  reserved - to be defined in a future version of MATLAB

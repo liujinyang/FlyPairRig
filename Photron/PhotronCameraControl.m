@@ -1,7 +1,7 @@
 %MAIN GUI
 %Please run "SDK_Sample_EN_run.m" to launch the interface selection GUI
 
-function SDK_Sample_EN(nInterfaceCode,IPList,nDetectParam)
+function PhotronCameraControl(nInterfaceCode,IPList,nDetectParam)
 % clc
 
 %PDC Input settings

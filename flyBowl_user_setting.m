@@ -1,6 +1,6 @@
 %flyBowl1 upper left corner
 serial_port_for_LED_Controller = 'COM8';
-defaultDir = 'C:\Users\labadmin\Documents\MATLAB\FlyBowl1Rig\';
+defaultDir = 'C:\Users\labadmin\Documents\MATLAB\FlyPairRig\';
 
 %%settings of the camera
 %1 means with photron Matlab control and 0 means no Photron control 
