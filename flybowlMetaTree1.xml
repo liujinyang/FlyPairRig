@@ -12,7 +12,7 @@
     <exp_datetime appear_advanced="true, readonly"
         appear_basic="true, readonly" datatype="datetime" default=""
         description="Date and time at which the experiment was started."
-        entry="acquire" last="20230118T164758" range_advanced=""
+        entry="acquire" last="20230119T110434" range_advanced=""
         range_basic="" required="true" units=""/>
     <experimenter appear_advanced="true" appear_basic="true"
         datatype="string" default="$LAST"
@@ -178,7 +178,7 @@
                 <seconds_fliesloaded appear_advanced="true"
                     appear_basic="true" datatype="integer" default=""
                     description="calculated as difference in seconds between load button push and movie start."
-                    entry="acquire" last="1" range_advanced=""
+                    entry="acquire" last="534" range_advanced=""
                     range_basic="" required="true" units=""/>
                 <datetime_sorted appear_advanced="true"
                     appear_basic="true" datatype="datetime"
@@ -205,7 +205,7 @@
         <temperature appear_advanced="true, readonly"
             appear_basic="true, readonly" datatype="integer" default=""
             description="Temperature snapshot at the time the assay was started."
-            entry="acquire" last="27" range_advanced="" range_basic=""
+            entry="acquire" last="28" range_advanced="" range_basic=""
             required="true" units="degrees Celsius"/>
         <humidity appear_advanced="true, readonly"
             appear_basic="true, readonly" datatype="integer" default=""

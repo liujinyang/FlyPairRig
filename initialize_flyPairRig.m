@@ -1,6 +1,6 @@
-function hComm = initialize_flyBowl()
+function hComm = initialize_flyPairRig()
 
-flyBowl_user_setting;
+flyPairRig_user_setting;
 
 % %initialize LED controller
 fprintf('Opening LED controller...\n');

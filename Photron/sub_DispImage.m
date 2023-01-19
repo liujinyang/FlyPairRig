@@ -1,4 +1,5 @@
-
+handles = guidata(close);
+ax = handles.axes;
 if nMode == PDC_COLORTYPE_MONO
     colormap( gray(256) );
 %  if(nWidth ~= nWidthMax)
@@ -10,7 +11,7 @@ if nMode == PDC_COLORTYPE_MONO
 %            nBuf= D;
 %            image( nBuf'); 
 %         else
-            image( nBuf');   
+            image(ax, nBuf');   
 %   end 
 end
 

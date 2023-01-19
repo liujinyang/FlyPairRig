@@ -55,9 +55,9 @@ function flyPairRig_OpeningFcn(hObject, eventdata, handles, varargin)
 % Choose default command line output for flyPairRig
 handles.output = hObject;
 
-flyBowl_user_setting;
+flyPairRig_user_setting;
 
-hComm = initialize_flyBowl;
+hComm = initialize_flyPairRig;
 handles.hComm = hComm;
 handles.LEDPattern = '1111';
 handles.Chr_int_val = 0;
@@ -149,11 +149,14 @@ if handles.hComm.photron
     GUIPhotron = findobj(allchild(groot), 'flat', 'Tag', 'Photron');
     handlesPhotron = guidata(GUIPhotron);
     handles.Photron = handlesPhotron;
+    handles.Photron.livestop_radio.Value = 0;
+    handles.Photron.live_radio.Value = 1;
 %    handles.Photron.resolution_pop.Value = 39;
     feval(handles.Photron.resolution_pop.Callback,handles.Photron.resolution_pop);
+    feval(handles.Photron.live_radio.Callback, handles.Photron.live_radio);
 end
 
-%feval(handles.Photron.live_radio.Callback, handles.Photron.live_radio);
+
 guidata(hObject, handles);
 % UIWAIT makes flyPairRig wait for user response (see UIRESUME)
 % uiwait(handles.figure1);
@@ -317,7 +320,7 @@ try
     if ~(handles.hComm.THSensor == 0)
         stop(handles.tTemp);
     end
-    clearup_flyBowl(handles.hComm)
+    clearup_flyPairRig(handles.hComm)
     
 catch ME
     disp(ME);
@@ -575,6 +578,7 @@ if button_state == get(hObject,'Max')
     end
 
     if handles.hComm.photron
+        feval(handles.Photron.camera_toggle_button.Callback, handles.Photron.camera_toggle_button);
         %change the camera from preview mode to stop mode
         handles.Photron.livestop_radio.Value = 1;
         handles.Photron.live_radio.Value = 0;
@@ -1245,29 +1249,32 @@ guidata(hObject, handles);
 end
 
 function metaData_closereq(src, eventdata, hFig)
-handles = guidata(hFig);
+try
+    handles = guidata(hFig);
 
-%save the meta data file
-for i= 1:1
-    handles.defaultsTree(i).setValueByUniquePath({'experiment','flag_aborted','content'},num2str(handles.flagAborted));
-    mParent = handles.defaultsTree(i).getValueByUniquePath({'experiment','session','flies','male_parent'});
-    fParent = handles.defaultsTree(i).getValueByUniquePath({'experiment','session','flies','female_parent'});
-    myData.mParent{i} = mParent;
-    myData.fParent{i}  = fParent;
-    metaData = createXMLMetaData(handles.defaultsTree(i));
-    % Save defaultsTree as xml file. Note, the current values for all the meta
-    % data are saved in the tree so that it is possible to have meata data whose
-    % default option is to use the last value used.
-    handles.defaultsTree(i).write(handles.defaultMetaXmlFile{i});
-    if isfield(handles, ['expDataSubdir',num2str(i)])
-        metaDataFile = [handles.(['expDataSubdir',num2str(i)]), '\metaData.xml'];
-        metaData.write(metaDataFile);
+    %save the meta data file
+    for i= 1:1
+        handles.defaultsTree(i).setValueByUniquePath({'experiment','flag_aborted','content'},num2str(handles.flagAborted));
+        mParent = handles.defaultsTree(i).getValueByUniquePath({'experiment','session','flies','male_parent'});
+        fParent = handles.defaultsTree(i).getValueByUniquePath({'experiment','session','flies','female_parent'});
+        myData.mParent{i} = mParent;
+        myData.fParent{i}  = fParent;
+        metaData = createXMLMetaData(handles.defaultsTree(i));
+        % Save defaultsTree as xml file. Note, the current values for all the meta
+        % data are saved in the tree so that it is possible to have meata data whose
+        % default option is to use the last value used.
+        handles.defaultsTree(i).write(handles.defaultMetaXmlFile{i});
+        if isfield(handles, ['expDataSubdir',num2str(i)])
+            metaDataFile = [handles.(['expDataSubdir',num2str(i)]), '\metaData.xml'];
+            metaData.write(metaDataFile);
+        end
     end
-end
 
-set(hFig,'UserData',myData)
-guidata(hFig,handles);
-closereq;
+    set(hFig,'UserData',myData)
+    guidata(hFig,handles);
+catch
+    delete(src);
+end
 end
 
 % --- Executes on button press in BGImg_button.
@@ -1300,6 +1307,7 @@ if handles.hComm.photron
 
     %start transfering movie from camera to workstation here
     feval(handles.Photron.data_toggle_button.Callback, handles.Photron.data_toggle_button);
+
     handles.Photron.partition_t2_pop.Value = 1;
     feval(handles.Photron.partition_t2_pop.Callback, handles.Photron.partition_t2_pop);
     handles.Photron.path_edit.Enable = 'on';
